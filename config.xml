@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.jesua.todo"
+    versionCode = "1"
+    version     = "0.0.1" >
+
+  <name>GaleriaION</name>
+
+  <description>
+      ToDO IONIC.
+  </description>
+
+  <author href="https://jesua.com" email="jesua.educa@gmail.com">
+      Jesus Alberto Martinez
+  </author>
+
+  <access origin="*" />
+  <plugin name="cordova-plugin-whitelist" />
+  <plugin name="cordova-plugin-vibration" />
+</widget>
