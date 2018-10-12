@@ -56,11 +56,11 @@ async function deleteItem(item) {
     await alertController.componentOnReady();
   
     const alert = await alertController.create({
-        header: item ? 'Delete item' : 'Delete all',
-        message: 'Are you sure?',
+        header: item ? 'Borrar item' : 'Borrar todos',
+        message: '¿Estás seguro?',
         buttons: [
             {
-                text: 'YES',
+                text: 'SI',
                 handler: () => {
                     if (item) {
                         item.remove();
@@ -167,7 +167,7 @@ async function addEditItem(item) {
     const modalElement = await modalController.create({component:element});
     modalElement.present();
 }
-}
+
 
 async function deleteItem(item) {
     const alertController = document.querySelector('ion-alert-controller');
@@ -270,8 +270,9 @@ async function addEditItem(item) {
         else {
             if (item) {
                 item.close();
+                alert(item.innerHTML);
                 item.innerHTML = taskHTML(newText,newDate,newIcon); 
-                updateList(getList());
+                //updateList(getList());
             }
             else {
                 var newTask = '<ion-item-sliding>'+taskHTML(newText,newDate,newIcon)+'</ion-item-sliding>';
