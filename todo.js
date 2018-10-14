@@ -56,12 +56,7 @@ function taskHTML(text, date, icon) {
             </ion-item-options>`);
 }
 
-/*
-function menosuno() {
-    t=document.querySelector('ion-tab');
-    alert(t);
-}
-*/
+
 
 async function deleteItem(item) {
     const alertController = document.querySelector('ion-alert-controller');
@@ -75,10 +70,12 @@ async function deleteItem(item) {
                 text: 'SI',
                 handler: () => {
                     if (item) {
-                        //menosuno();
+                        t=getTab();
+                        t.badge=eval(t.badge-1);
                         item.remove();
                     }
                     else { 
+                        getTab().badge=0;                        
                         updateList('');
                     }
                     saveList();
@@ -172,6 +169,8 @@ async function addEditItem(item) {
                 var newTask = '<ion-item-sliding>'+taskHTML(newText,newDate,newIcon)+'</ion-item-sliding>';
                 updateList(getList()+newTask);
             }
+            t=getTab();
+            t.badge=parseInt(t.badge)+1;
             saveList();
             modalController.dismiss();
         }
