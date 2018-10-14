@@ -1,9 +1,14 @@
+function numtareas(rg){
+    return (rg.querySelectorAll('ion-item').length);
+}
+
 function onLoad() {
     document.addEventListener("ionItemReorder", saveList);
     document.addEventListener("ionModalDidDismiss", closeItems);
     document.addEventListener("ionAlertDidDismiss", closeItems);
     document.querySelectorAll('ion-tab').forEach(function(t) {
         t.querySelector('ion-reorder-group').innerHTML = localStorage.getItem('todo-list-'+t.icon);
+        t.badge=numtareas(t.querySelector('ion-reorder-group'));
     });
 }
 
@@ -27,8 +32,8 @@ function saveList() {
 function toggleReorder() {
     var reorder = getTab().querySelector('ion-reorder-group');  
     var b=document.getElementById('reordenar');
-    (reorder.disabled)? b.color="success":b.color="default";
     reorder.disabled = !reorder.disabled;
+    //(!reorder.disabled)? b.color="success":b.color="default";
 }
 
 function closeItems() {
@@ -51,6 +56,12 @@ function taskHTML(text, date, icon) {
             </ion-item-options>`);
 }
 
+/*
+function menosuno() {
+    t=document.querySelector('ion-tab');
+    alert(t);
+}
+*/
 
 async function deleteItem(item) {
     const alertController = document.querySelector('ion-alert-controller');
@@ -64,6 +75,7 @@ async function deleteItem(item) {
                 text: 'SI',
                 handler: () => {
                     if (item) {
+                        //menosuno();
                         item.remove();
                     }
                     else { 
@@ -153,9 +165,8 @@ async function addEditItem(item) {
         else {
             if (item) {
                 item.close();
-                alert(item.innerHTML);
                 item.innerHTML = taskHTML(newText,newDate,newIcon); 
-                //updateList(getList());
+                updateList(getList());
             }
             else {
                 var newTask = '<ion-item-sliding>'+taskHTML(newText,newDate,newIcon)+'</ion-item-sliding>';
