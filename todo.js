@@ -33,6 +33,7 @@ function toggleReorder() {
     var reorder = getTab().querySelector('ion-reorder-group');  
     var b=document.getElementById('reordenar');
     reorder.disabled = !reorder.disabled;
+    navigator.vibrate(document.getElementById("vibration").value);
     //(!reorder.disabled)? b.color="success":b.color="default";
 }
 
@@ -59,6 +60,7 @@ function taskHTML(text, date, icon) {
 
 
 async function deleteItem(item) {
+    navigator.vibrate(document.getElementById("vibration").value);
     const alertController = document.querySelector('ion-alert-controller');
     await alertController.componentOnReady();
   
