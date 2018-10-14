@@ -33,7 +33,7 @@ function toggleReorder() {
     var reorder = getTab().querySelector('ion-reorder-group');  
     var b=document.getElementById('reordenar');
     reorder.disabled = !reorder.disabled;
-    navigator.vibrate(document.getElementById("vibration").value);
+    navigator.vibrate(50);
     //(!reorder.disabled)? b.color="success":b.color="default";
 }
 
@@ -60,7 +60,7 @@ function taskHTML(text, date, icon) {
 
 
 async function deleteItem(item) {
-    navigator.vibrate(document.getElementById("vibration").value);
+    navigator.vibrate(50);
 
     const alertController = document.querySelector('ion-alert-controller');
     await alertController.componentOnReady();
@@ -105,7 +105,7 @@ async function error(message) {
 }
 
 async function addEditItem(item) {
-    navigator.vibrate(document.getElementById("vibration").value);
+    navigator.vibrate(50);
 
     const modalController = document.querySelector('ion-modal-controller');
     await modalController.componentOnReady();
