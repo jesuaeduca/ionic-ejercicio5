@@ -61,6 +61,7 @@ function taskHTML(text, date, icon) {
 
 async function deleteItem(item) {
     navigator.vibrate(document.getElementById("vibration").value);
+
     const alertController = document.querySelector('ion-alert-controller');
     await alertController.componentOnReady();
   
@@ -104,6 +105,8 @@ async function error(message) {
 }
 
 async function addEditItem(item) {
+    navigator.vibrate(document.getElementById("vibration").value);
+
     const modalController = document.querySelector('ion-modal-controller');
     await modalController.componentOnReady();
 
